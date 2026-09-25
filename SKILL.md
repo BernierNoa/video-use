@@ -31,6 +31,7 @@ These are the things where deviation produces silent failures or broken output. 
 10. **Parallel sub-agents for multiple animations.** Never sequential. Spawn N at once via the `Agent` tool; total wall time ≈ slowest one.
 11. **Strategy confirmation before execution.** Never touch the cut until the user has approved the plain-English plan.
 12. **All session outputs in `<videos_dir>/edit/`.** Never write inside the `video-use/` project directory.
+13. **Never cut a silence on transcript alone.** Every silence gap ≥400ms flagged as a cut candidate must get a `timeline_view` check before being dropped — the audio transcript only sees speech events, not visual reactions, silent laughter, or reaction shots. If the visual shows anything worth keeping (laugh, expression, action, reaction), treat it as a beat to preserve or trim around, not a straight cut.
 
 Everything else in this document is a worked example. Deviate whenever the material calls for it.
 
